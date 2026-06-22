@@ -6,18 +6,20 @@ public class CharacterFequency {
     System.out.print("ENTER THE STRING: ");
     String str = input.nextLine();
 
-    
+    System.out.print("ENTER THE CAHRACTER: ");
+    char ch= input.next().charAt(0);
+
+    int count = 0;
 
     for(int i =0;i<=str.length()-1;i++){
-        int count = 0;
-        for(int j =0;j<=str.length()-1;j++){
-            if(str.charAt(i)==str.charAt(j)){
+        
+            if(ch==str.charAt(i)){
                 count++;
             }
         }
-        if(str.charAt(i)!=' ')
-        System.out.println("FREQUENCY OF "+ str.charAt(i)+ " = "+ count);
-        }
+        
+        System.out.println("FREQUENCY OF "+ ch+ " = "+ count);
+        
     }
 
     }
