@@ -2,42 +2,27 @@ import java.util.Scanner;
 
 public class NonRepeatingChar {
     public static void main(String[] args) {
-    Scanner input=new Scanner(System.in);
-    System.out.print("ENTER THE STRING: ");
-    String str = input.nextLine();
+        Scanner input = new Scanner(System.in);
 
-    char[] ch = str.toCharArray();
-    System.out.print("FIRST NON-REPEATING CHARACTER: ");
-    
-    
-    
-    for (int i =0 ; i <= str.length()-1; i++) {
-            boolean duplicate = false;
-            
-                boolean checked = false;
-            for (int k = 0; k < i; k++) {
-                if (str.charAt(k) == str.charAt(i)) {
-                    checked = true;
+        System.out.print("Enter a string: ");
+        String str = input.nextLine();
+
+        for (int i = 0; i < str.length(); i++) {
+            boolean repeating = false;
+
+            for (int j = 0; j < str.length(); j++) {
+                if (i != j && str.charAt(i) == str.charAt(j)) {
+                    repeating = true;
                     break;
                 }
             }
-            
-            if (!checked) {
-                for (int j = i + 1; j < str.length()-1; j++) {
-                    if (str.charAt(i) == str.charAt(j)) {
-                        duplicate = true;
-                        break;
-                    }
-                }
-            }
-            
-            if (duplicate) {
-                System.out.print(str.charAt(i) );
-                break;
+
+            if (!repeating) {
+                System.out.println("FIRST NON-REPEATING CHARACTER = " + str.charAt(i));
+                return;
             }
         }
-        
 
+        System.out.println("NO NON-REPEATING CHARACTER FOUND.");
+    }
 }
-}
-
